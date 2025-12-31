@@ -1,4 +1,5 @@
-tensorflow
+fastapi
 pillow
-flask
-flask_cors
+requests
+tensorflow
+uvicorn[standard]

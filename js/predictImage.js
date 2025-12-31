@@ -91,9 +91,10 @@ function getResultsForTick(params) {
 
     return new Promise( async (resolve, reject) => {
 
-        let hostname = isProjectRunningLocally() ? "127.0.0.1:8000" : "tickapi.aiiot.live";
+        let hostname = isProjectRunningLocally() ? "127.0.0.1:8001" : "tickapi.aiiot.live";
         console.log("hostname: " , hostname);
-        let url = `https://${hostname}/predict/?${params}`
+        let scheme = hostname.startsWith("127.0.0.1") || hostname.startsWith("localhost") ? "http" : "https";
+        let url = `${scheme}://${hostname}/predict/?${params}`
 
         // http://165.22.182.47:8033/predict/?imageName=1717389419.jpg&&modelFilename=VGG16-VARA01b-32x32-EP15-ACCU99-02-06-2024.keras&&modelInputFeatureSize=32
 
